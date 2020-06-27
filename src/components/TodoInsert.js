@@ -5,6 +5,7 @@ import './TodoInsert.scss';
 
 const TodoInsert =({onInsert}) =>{
     const [value, setValue] =useState('');
+
     const onChange = useCallback(e =>{
         console.log(e.target.value);
         setValue (e.target.value);
