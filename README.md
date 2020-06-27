@@ -12,6 +12,7 @@
     const Conter = () =>{
         const [value,setValue] = useState(0) //기본 상태값 셋팅
     }
+ 
    
 * useEffect 
     리액트 컴포넌트가 렌더될 때 마다 특정 작업을 수행하도록 설정하는 Hook
