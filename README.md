@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 훅을 통해 만든 투두 앱 공부 정리(벨로퍼트님 강좌)
 
-## Available Scripts
+1. Hook
+    함수형 컴포넌트에서도 상태를 사용할 수 있게 하는 놈
 
-In the project directory, you can run:
+* useState
+  가장 기본적인 Hook이며 함수형 컴포는트에서도 가변적인 상태를 지닐 수 있게 함
 
-### `yarn start`
+소스참고
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    import React, {usetState} from 'react'
+    const Conter = () =>{
+        const [value,setValue] = useState(0) //기본 상태값 셋팅
+    }
+   
+* useEffect 
+    리액트 컴포넌트가 렌더될 때 마다 특정 작업을 수행하도록 설정하는 Hook
+    렌더 될때 마다 실행하는게 비효율 적이면 마운트 될때만 실행할 수 있게끔 만들 수 있다.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    useEffect(()=> {
+        console.log("마운트");
+    },[]) 
 
-### `yarn test`
+    2번째 파라미터로 비어있는 배열을 넣어주면 됨.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* useReducer
+    컴포넌트 상황에 따라 여러 상태를 다른 값으로 업데이트 해주고 싶을 때 사용하는 Hook
+    리듀서는 현재 상태, 그리고 업데이트를 위해 필요한 정보를 담은 액션 값을 전달받아 새로운 상태를 return
+    어떤 액션인지 선언을 해야함 ex {type : 'INCREMENT'}
+    리덕스에서 같이쓰면 효율적
 
-### `yarn build`
+* useMemo
+    함수형 컴포넌트 최적화 할 때 씀
+    렌더하는 과정에서 특정 값이 바뀌었을 때만 연산을 실행하고, 그렇지 않으면 이전에 연산했던 결과를 재 사용
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* useCallback
+    렌더링 성능을 최적화 할 때 사용 (useMemo와 비슷)
+    이 Hook을 사용하면 필요할 때만 이벤트 핸들러 함수를 생성 할 수 있음
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* useRef
+    함수형 컴포넌트에서 ref를 쉽게 사용할 수 있도록 도와줌
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. 스타일링
 
-### `yarn eject`
+    이번 프로젝트는 scss를 사용
+    scss 설치방법
+    $ yarn add node-sass
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+    
