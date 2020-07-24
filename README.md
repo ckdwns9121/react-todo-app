@@ -52,7 +52,11 @@
 
     이번 프로젝트는 scss를 사용
     scss 설치방법
+    ```
+    
     $ yarn add node-sass
+    
+    ```
 
 
 
